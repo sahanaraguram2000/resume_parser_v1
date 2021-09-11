@@ -1,4 +1,3 @@
-import pandas as pd
 import streamlit as st
 import docx2txt
 # from tika import parser
@@ -6,9 +5,19 @@ import os
 import spacy
 import pandas as pd
 # import docx2txt
-from PIL import Image 
-from PyPDF2 import PdfFileReader
+# from PIL import Image 
+# from PyPDF2 import PdfFileReader
 import pdfplumber
+# from pathlib import Path
+
+# def read_pdf(file):
+# 	pdfReader = PdfFileReader(file)
+# 	count = pdfReader.numPages
+# 	all_page_text = ""
+# 	for i in range(count):
+# 		page = pdfReader.getPage(i)
+# 		all_page_text += page.extractText()
+# 	return all_page_text
 
 def pred(text):
     output={}
