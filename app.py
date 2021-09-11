@@ -9,16 +9,6 @@ import pandas as pd
 from PIL import Image 
 from PyPDF2 import PdfFileReader
 import pdfplumber
-# from pathlib import Path
-
-# def read_pdf(file):
-# 	pdfReader = PdfFileReader(file)
-# 	count = pdfReader.numPages
-# 	all_page_text = ""
-# 	for i in range(count):
-# 		page = pdfReader.getPage(i)
-# 		all_page_text += page.extractText()
-# 	return all_page_text
 
 def pred(text):
     output={}
@@ -30,6 +20,8 @@ def pred(text):
         output[ent.label_.upper()]=ent.text
     return output
 
+st.title("Resume Parser")
+st.subheader("Upload your resume here!")
 uploaded_file = st.file_uploader("Upload Files",type=['pdf','docx'])
 if uploaded_file is not None:
     if st.button("Process"):
@@ -45,6 +37,3 @@ if uploaded_file is not None:
             raw_text = docx2txt.process(uploaded_file)
             op = pred(raw_text)
             st.write(op)
-
-        
-
