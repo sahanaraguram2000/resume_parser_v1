@@ -37,9 +37,12 @@ if uploaded_file is not None:
         if uploaded_file.type=='application/pdf':
             file_details = {"FileName":uploaded_file.name,"FileType":uploaded_file.type,"FileSize":uploaded_file.size}
             with pdfplumber.open(uploaded_file) as pdf:
-                st.write(len(pdf.pages))
-                page = pdf.pages[0]
-                op = pred(page.extract_text())
+                ext_txt = str()
+                # st.write(len(pdf.pages))
+                for i in range(len(pdf.pages)):
+                    page = pdf.pages[0]
+                    ext_txt += page.extract_text()
+                op = pred(ext_txt)
                 st.write(op)
         if uploaded_file.type=='application/vnd.openxmlformats-officedocument.wordprocessingml.document':
             file_details = {"FileName":uploaded_file.name,"FileType":uploaded_file.type,"FileSize":uploaded_file.size}
