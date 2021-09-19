@@ -1,5 +1,7 @@
-streamlit
-docx2txt
-pandas
-spacy
-pdfplumber
+spacy==2.2.3
+streamlit==0.86.0
+tika==1.24
+pdfplumber==0.5.28
+docx2txt==0.8
+pandas==1.2.5
+scikit_learn==0.24.2
